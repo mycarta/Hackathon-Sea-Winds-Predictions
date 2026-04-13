@@ -23,22 +23,14 @@ This transforms raw reanalysis data into model-ready features saved in `phase1_d
 
 | Notebook | Model | Runtime | Best for |
 |----------|-------|--------:|----------|
-| **2a_starting_kit_light** | CatBoost | ~5 min | Quick iteration, first submission |
-| **2b_starting_kit_medium** | Multi-seed CatBoost + LGBM blend | ~45 min | Competition-grade score |
-| **2c_starting_kit_deep_learning** | PyTorch MLP | ~15 min | Learning DL for tabular data |
-| **2d_starting_kit_heavy** | Per-level CatBoost | ~2h | Best all-level score |
-| **2e_starting_kit_explainable** | EBM (InterpretML) | ~10 min | Understanding feature effects |
+| **2a_starting_kit_light** | CatBoost | ~5-30 min |
+| **2b_starting_kit_medium** | Multi-seed CatBoost + LGBM blend | ~30-60 min | 
+| **2c_starting_kit_deep_learning** | PyTorch MLP | ~1-2 h |
+| **2d_starting_kit_heavy** | Per-level CatBoost | ~2h+ | 
+| **2e_starting_kit_explainable** | EBM (InterpretML) | ~10 min | 
 
 **Recommended path**: Start with **2a** (light) to get a first submission, then try **2b** (medium) for a better score.
 
-### 4. Explore the data (optional)
-
-| Notebook | Content |
-|----------|---------|
-| **3a_data_exploration** | Maps, distributions, HRES forecast accuracy |
-| **3b_variable_guide** | Physics of each variable (pressure, temperature, etc.) |
-| **3c_station_vs_reanalysis** | How grid predictions compare to real station observations |
-| **4_feature_guide** | Deep dive: how raw data becomes 125 features |
 
 ## Submission Format
 
