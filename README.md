@@ -21,8 +21,8 @@ This transforms raw reanalysis data into model-ready features saved in `phase1_d
 
 ### 3. Pick a starting kit
 
-| Notebook | Model | Runtime | Best for |
-|----------|-------|--------:|----------|
+| Notebook | Model | Runtime |
+|----------|-------|--------:|
 | **2a_starting_kit_light** | CatBoost | ~5-30 min |
 | **2b_starting_kit_medium** | Multi-seed CatBoost + LGBM blend | ~30-60 min | 
 | **2c_starting_kit_deep_learning** | PyTorch MLP | ~1-2 h |
