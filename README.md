@@ -11,7 +11,12 @@ for two maritime regions (North Sea, East China Sea), at 7 vertical levels.
 pip install -r requirements.txt
 ```
 
-### 2. Generate features (required, run once, ~10 min)
+### 2. Download the dataset
+
+Make sure you download the dataset from https://zenodo.org/records/19538994 in `phase1/` folder to start.
+
+
+### 3. Generate features (required, run once, ~10 min)
 
 ```bash
 jupyter notebook 1_feature_engineering.ipynb
@@ -47,12 +52,6 @@ q05, q50, q95, dir_50, dir_05, dir_95
 - **8 windows** × 2 regions × 3 horizons × 4 hours × 7 levels × ~2565 grid points
 
 See `phase1/scoring/SUBMISSION_FORMAT.md` for full details.
-
-## Scoring
-
-```bash
-python scoring/scoring.py predictions.csv /path/to/ground_truth.csv
-```
 
 ## File Structure
 
