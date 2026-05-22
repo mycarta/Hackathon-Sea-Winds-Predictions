@@ -1,0 +1,16 @@
+# Generated prediction CSVs (each ~300MB — exceeds GitHub 100MB limit)
+phase_1/predictions_*.csv
+
+# Raw dataset (15GB)
+phase_1/phase1_dataset/
+
+# Model training artifacts
+phase_1/catboost_info/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Local tooling settings
+.claude/
