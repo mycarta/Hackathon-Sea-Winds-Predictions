@@ -1,6 +1,9 @@
 # Generated prediction CSVs (each ~300MB — exceeds GitHub 100MB limit)
 phase_1/predictions_*.csv
 
+# Submission zips
+phase_1/submission_*.zip
+
 # Raw dataset (15GB)
 phase_1/phase1_dataset/
 
