@@ -1,0 +1,35 @@
+# Generated prediction CSVs (each ~300MB — exceeds GitHub 100MB limit)
+phase_1/predictions_*.csv
+
+# Submission zips
+phase_1/submission_*.zip
+
+# Raw dataset (15GB)
+phase_1/phase1_dataset/
+
+# Model training artifacts
+phase_1/catboost_info/
+
+# Generated script outputs (regenerable from committed scripts + raw data;
+# submission_pre_d14fix_backup.csv alone is ~330MB, exceeds GitHub 100MB limit)
+scripts/artifacts/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Local tooling settings
+.claude/
+
+# Final-evaluation inference set (Zenodo 20874645, inference_2022.zip).
+# Re-fetchable cold and checksum-verified by scripts/fetch_pin_inference_2022.py;
+# pinned in data/MANIFEST_zenodo_20874645.md. The pin record
+# phase_2/inference_2022/pin_inference_2022.json IS tracked.
+phase_2/inference_2022/inference_2022.zip
+phase_2/inference_2022/inference/
+phase_2/inference_2022/__MACOSX/
+
+# TenneT raw API responses: 11 MB, regenerable in 12 requests; the parquet is
+# the tracked artifact. Staleness condition in market_data_2019/MANIFEST.md.
+bidding_sim/market_data_2019/raw_tennet/

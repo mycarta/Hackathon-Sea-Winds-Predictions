@@ -1,0 +1,199 @@
+{
+  "record_id": "20874645",
+  "record_doi": "10.5281/zenodo.20874645",
+  "concept_recid_refused": "19538993",
+  "file_key": "inference_2022.zip",
+  "url": "https://zenodo.org/api/records/20874645/files/inference_2022.zip/content",
+  "pin": {
+    "size_b": 21742784,
+    "md5": "07bedad96f60de39134e01780be54a9d",
+    "sha256": "bb329f042b6c638f5ea70f26e32a044bf5c31c35f462b652ba697c3c87be59a7"
+  },
+  "entries": [
+    {
+      "name": "inference/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/.DS_Store",
+      "size": 14340,
+      "crc": "9623e6d1"
+    },
+    {
+      "name": "__MACOSX/inference/._.DS_Store",
+      "size": 120,
+      "crc": "38c0880b"
+    },
+    {
+      "name": "inference/window_8/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/window_6/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/window_1/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/window_7/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/README.md",
+      "size": 960,
+      "crc": "2e14b2e1"
+    },
+    {
+      "name": "__MACOSX/inference/._README.md",
+      "size": 176,
+      "crc": "e41ddea2"
+    },
+    {
+      "name": "inference/window_2/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/window_5/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/window_4/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/window_3/",
+      "size": 0,
+      "crc": "00000000"
+    },
+    {
+      "name": "inference/window_8/context_hres_north_sea.parquet",
+      "size": 356451,
+      "crc": "a75f531f"
+    },
+    {
+      "name": "inference/window_8/context_reanalysis_north_sea.parquet",
+      "size": 3159810,
+      "crc": "f9fc6663"
+    },
+    {
+      "name": "inference/window_8/metadata.json",
+      "size": 236,
+      "crc": "67d0de5c"
+    },
+    {
+      "name": "inference/window_6/context_hres_north_sea.parquet",
+      "size": 356463,
+      "crc": "90a29ee6"
+    },
+    {
+      "name": "inference/window_6/context_reanalysis_north_sea.parquet",
+      "size": 3065599,
+      "crc": "a4560457"
+    },
+    {
+      "name": "inference/window_6/metadata.json",
+      "size": 236,
+      "crc": "623a2b16"
+    },
+    {
+      "name": "inference/window_1/context_hres_north_sea.parquet",
+      "size": 356451,
+      "crc": "48f12dda"
+    },
+    {
+      "name": "inference/window_1/context_reanalysis_north_sea.parquet",
+      "size": 3184818,
+      "crc": "4268a765"
+    },
+    {
+      "name": "inference/window_1/metadata.json",
+      "size": 236,
+      "crc": "abe3830d"
+    },
+    {
+      "name": "inference/window_7/context_hres_north_sea.parquet",
+      "size": 356439,
+      "crc": "243ccd7f"
+    },
+    {
+      "name": "inference/window_7/context_reanalysis_north_sea.parquet",
+      "size": 3073609,
+      "crc": "20fcb7b0"
+    },
+    {
+      "name": "inference/window_7/metadata.json",
+      "size": 236,
+      "crc": "e1fa7f9e"
+    },
+    {
+      "name": "inference/window_2/context_hres_north_sea.parquet",
+      "size": 356419,
+      "crc": "3ee3f92b"
+    },
+    {
+      "name": "inference/window_2/context_reanalysis_north_sea.parquet",
+      "size": 3199955,
+      "crc": "7b01338a"
+    },
+    {
+      "name": "inference/window_2/metadata.json",
+      "size": 236,
+      "crc": "00e4e9ae"
+    },
+    {
+      "name": "inference/window_5/context_hres_north_sea.parquet",
+      "size": 356427,
+      "crc": "c131c9cb"
+    },
+    {
+      "name": "inference/window_5/context_reanalysis_north_sea.parquet",
+      "size": 3148359,
+      "crc": "26edb469"
+    },
+    {
+      "name": "inference/window_5/metadata.json",
+      "size": 236,
+      "crc": "1a2f72f4"
+    },
+    {
+      "name": "inference/window_4/context_hres_north_sea.parquet",
+      "size": 356451,
+      "crc": "bef20ee4"
+    },
+    {
+      "name": "inference/window_4/context_reanalysis_north_sea.parquet",
+      "size": 3095690,
+      "crc": "e9206c5c"
+    },
+    {
+      "name": "inference/window_4/metadata.json",
+      "size": 236,
+      "crc": "67ff66b7"
+    },
+    {
+      "name": "inference/window_3/context_hres_north_sea.parquet",
+      "size": 356407,
+      "crc": "91d01c64"
+    },
+    {
+      "name": "inference/window_3/context_reanalysis_north_sea.parquet",
+      "size": 3143913,
+      "crc": "a4d136fa"
+    },
+    {
+      "name": "inference/window_3/metadata.json",
+      "size": 236,
+      "crc": "19be9b0a"
+    }
+  ]
+}
