@@ -4450,3 +4450,193 @@ harmless when the destination is public.
 
 **Compute disclosure:** none. Governance and documentation only; no model, no
 pipeline, no network.
+
+## 2026-08-27 — CC — Figure 6 label relocation (three_curves), regenerated as v2
+
+**Anchor:** ADDITION, figure-6-label-relocation-20260827. Additions only.
+
+**Task.** Dispatch relayed by Matteo: move the "perfect production knowledge"
+label in `three_curves.png` (report Figure 6) off the curves, into the empty
+upper-left of the lower differences-from-naive panel. Same data, same axes,
+ranges, colours, line styles, fonts, panel layout, dimensions and DPI.
+
+**What changed in the script.** `bidding_sim/stage4_bidding_2019.py`, two
+things, both mechanical:
+
+1. The label move itself. The "perfect" annotation left the end-of-curve
+   annotation loop and became a single axes-fraction annotation at
+   (0.015, 0.97), `ha="left"`, `va="top"`. Text, font size, colour and weight
+   are unchanged; only the anchor moves.
+2. A `--figure-only` flag. Needed, not cosmetic: a normal run of this script
+   rewrites `revenue_by_strategy_1460h.csv`, `monthly_breakdown.csv`,
+   `revenue_by_tau.png`, `revenue_by_tau.csv`, the summary markdown and
+   `stage4_summary.json` — and `stage4_summary.json` carries an `elapsed_s`
+   wall-clock field, so a full re-run could not have left the shipped
+   artifacts untouched. `--figure-only` writes the figure under a rolled name
+   and returns before every other write. The production path is unchanged: a
+   normal run still writes `three_curves.png`.
+
+The dispatch asked for a diff carrying only the label position. That was not
+achievable as written — the rolled output filename is itself a second change,
+and the no-clobber requirement forced the third. Flagged to Matteo in the
+report-back rather than silently widened.
+
+**Verification.**
+
+- Input SHA gate (contract A1) passed on all three input parquets, so the
+  data path is provably identical to the shipped figure's.
+- Endpoints vs naive, from the regenerated figure's own data:
+  quantile +182.435 k, perfect +154.957 k, Danglars -56.503 k EUR, which
+  render on the figure as +182 k, +155 k and -57 k. These match the
+  as-shipped values; the caption needs no change.
+- All eight pre-existing files in `bidding_sim/results_2019/` verified
+  byte-unchanged by `sha256sum -c` against a pre-run snapshot, including
+  `three_curves.png` itself (a030e6d2...) and the other figure
+  `revenue_by_tau.png` (36d8f437...).
+- Pixel diff, old vs new: identical dimensions 1140x990; 5,146 of 1,128,600
+  pixels differ (0.456%); the upper panel is pixel-identical; all change is
+  confined to the lower panel, bounding box x 157-972, y 484-629 — the
+  label's vacated position and its new one.
+
+**Output.** `bidding_sim/results_2019/three_curves_v2.png`, SHA-256
+7621cb8c8de26647be0c2a57058a0a97cf73cd32324300febe1c493de3922552, 177,419
+bytes. NOT placed into the report build: the strategist swaps it in as
+`figs/fig6.png` after Matteo approves it visually.
+
+**Compute disclosure:** one `--figure-only` run of
+`bidding_sim/stage4_bidding_2019.py` on a laptop CPU, a few seconds. No model
+trained, no network, no GPU. Deterministic script, no stochastic step, so no
+seed applies.
+
+## 2026-08-28 — CC — Relay staging for Supporting Material (relay_sm_20260828)
+
+**Anchor:** ADDITION, relay-sm-staging-20260828. Additions only.
+
+**Task.** Dispatch relayed by Matteo: stage six primary artifacts into one
+gitignored folder at the repo root so the Supporting Material chat can be fed
+in a single upload. Copies only; sources unmoved and unedited.
+
+**Five of six staged.** `relay_sm_20260828/`, ignored via a new
+`.gitignore` rule at line 39.
+
+| File | Origin | SHA-256 |
+|---|---|---|
+| `audit_anchor6_s3_case1_20260825.json` | `reports/audit_anchor6_s3_case1_20260825.json` | 5dfb0665... |
+| `monthly_breakdown.csv` | `bidding_sim/results_2019/monthly_breakdown.csv` | adb75439... |
+| `revenue_by_strategy_1460h.csv` | `bidding_sim/results_2019/revenue_by_strategy_1460h.csv` | e31c0779... |
+| `d14_blend_recon_20260720.md` | `reports/d14_blend_recon_20260720.md` | a5880f26... |
+| `audit_lcoe_row2_and_curve_20260827.json` | `reports/audit_lcoe_row2_and_curve_20260827.json` | 98314cc6... |
+
+Every copy was hash-verified against its source after copying; all five match.
+
+**Disambiguations recorded.** `revenue_by_strategy_1460h.csv` exists twice in
+the repo — `bidding_sim/results_2019/` and `docs/audit/extracts/`. They are
+byte-identical (e31c0779...), so the choice is free; the simulation output was
+taken as the primary. `monthly_breakdown.csv` is unique.
+
+The item-5 audit JSON was identified as
+`reports/audit_lcoe_row2_and_curve_20260827.json` on its own internal
+provenance: its `dispatch` field reads "CC dispatch 2026-08-27, items 0 and
+0b", and it carries the published-curve cases. Not inferred from the filename.
+
+**MISS — item 6, `item3_reportback_20260828.md`. Not written.**
+
+The dispatch allowed a fallback: if the item 3 report-back could not be
+reproduced verbatim, reconstruct it from the log's item 3 entry with source
+lines cited. Neither source exists on this mount:
+
+1. No report-back text is on disk. A repo-wide search for `*report*back*`
+   returns nothing, and `docs/dispatches/` holds only
+   `cc_dispatch_20260825_batch.md` — the dispatch, not any reply to it.
+2. `LLM_AGENT_LOG.md` has no item 3 entry. The string "item 3" does not occur
+   in it. Its dated headings run ... 2026-08-22 (three entries) and then jump
+   straight to the 2026-08-27 figure-6 entry written by this session. The
+   2026-08-24 to 2026-08-27 audit block was never logged — a gap this repo
+   already knows about and records at `OBLIGATIONS.md:53`, itself found while
+   doing that same dispatch item 3.
+
+So the fallback's cited source is the very gap the fallback was meant to
+paper over. Writing the file from `compute_accounting/compute_after_20260818.md`
+instead would be substituting a different artifact and composing new content,
+both of which the dispatch forbids. Reported rather than filled.
+
+**Nearest primary artifacts, for Matteo's decision** — item 3's actual
+outputs, both present, neither staged because neither is what was asked for:
+`compute_accounting/compute_after_20260818.md` (7,154 B) and
+`compute_accounting/compute_after_20260818.json` (11,785 B), generated by
+`scripts/compute_after_20260818_20260827.py`, whose header names the same
+dispatch item.
+
+**Compute disclosure:** file copies and SHA-256 hashing of ~450 kB, plus
+greps. A few seconds of laptop CPU. No model, no network, no GPU.
+
+### ADDENDUM, same day — item 6 redirect (relay-sm-staging-20260828)
+
+Matteo accepted the item 6 miss above; no reconstruction was written, and the
+`item3_reportback_20260828.md` line stands as reported. In its place he
+directed item 3's actual outputs be staged under their own names. Both copied,
+re-hashed after copy, both match source:
+
+| File | Origin | SHA-256 |
+|---|---|---|
+| `compute_after_20260818.md` | `compute_accounting/compute_after_20260818.md` | 6288beca141f81d7ece294374ab6991636a37e4f530009352620d069dd7fd80f |
+| `compute_after_20260818.json` | `compute_accounting/compute_after_20260818.json` | 6cdb435a5c46fff7a4d9b206a9769738f7a7f4fb5176da738260799a12a356e3 |
+
+`relay_sm_20260828/` therefore holds **seven** files, not the six the dispatch
+first named: the five originally staged, plus these two standing in for item 6
+as its outputs rather than as the report-back that does not exist.
+
+## 2026-08-29 - CC - SM Annex Task 2 walkthrough (commit 36aeae4)
+
+2026-08-29, CC, SM Annex Task 2 walkthrough (commit 36aeae4). Dispatch from the
+report seat: inventory, then build one PDF from the Task 2 walkthrough notebook
+with the notebook's own markdown as section text. Inventory found the notebook
+out of repo and its execution not read-only; stopped and reported; Matteo
+decided build, scratch-copy execution, section-grouped layout. Built cold in env
+pywake with live PyWake, two runs byte-identical, source repo unchanged before
+and after. One defect caught before delivery: injecting the 300 dpi preamble at
+cell 0 shifted every hardcoded cell index by one, so the first build rendered
+the injected script as Section 1 while the em-dash count still passed; fixed by
+removing the preamble after execution and adding a cell-alignment guard run
+before and after. Custody gap for the out-of-repo source registered in
+data/PINNED_ARTIFACTS.md.
+
+## 2026-08-29, report editing seat (Fable, claude.ai), successor to the 08-29 morning seat
+
+Receipt gate on r4 found the project pipeline re-encoding binaries (fig3 as JPEG, Kit.pdf as a zip bundle); true files arrived as chat attachments. Edits 13 to 17 applied from Matteo's marks with before and after wording (EDIT_LOG_20260829e to g). Annex 4 (the whisper and the bag) produced at the report seat: 44 dashes replaced, framing paragraph, wkhtmltopdf, 8 pages, SHA 8040ee0a. SM final and final2 gated against r6 by diff; three word fixes returned. Relay miscount pattern recorded: twice in two days a relay listed as dropped something still in the draft (Opus's finding). Compute: chat inference on provider infrastructure, not measured.
+
+## 2026-08-30, report editing seat, same chat, compile seat merged
+
+Matteo's full read of r6b: twelve marks, edits 18a to 18n, 19 (References, sixteen entries, verified by web search where the citation audit gave no title), 20, 21, 22. Out-of-family review of the SM in Copilot Enterprise on GPT-5.6, BLOCKs only: eight objections, six were annex pointers read against the SM body alone, two real (a ratio claim wider than Table E1; a caption claiming identical wind input across two sites), both fixed in SM and report. Opus caught a second overreach in the report seat's replacement wording for the first (the median clause); fixed. Six-judge persona pass on r7, same reviewer, as the published scientific committee: 31 objections, 17 applied as edit 21, 14 accepted with reasons in the edit log. P4 persona pass (report_review_personas.md): zero BLOCKs. Numeric cross-check between report and SM at compile: 125 shared tokens, none differing. SM item 8 applied at the report seat under Matteo's explicit waiver of the two-seat rule, one clause, diff recorded. Compile here: report 12 pages SHA 70cde014, supporting material 76 pages SHA 23a158a8 (SM body plus four annexes behind divider pages), submission.json 2f3ab624. Emailed by Matteo, three attachments. Compute: chat inference on provider infrastructure, not measured; wkhtmltopdf and pdflatex runs in the chat container, seconds each.
+
+## Compliance record, IP clarification (entered late)
+
+2026-07-18: Matteo emailed the organizer and the hackathon address asking whether participants may blog about methodology and share report materials, sketches included, after the competition (Article 4 against Article 7). By 2026-07-20: answer received, open-source release and publication confirmed, no restrictions on a participant's own work, Article 4 wording to be checked with legal; practical answer unambiguous. Gap lists of 07-21b and 07-27 marked it RESOLVED. Not logged here at the time; entered 2026-08-30.
+
+## Post-competition items carried
+
+Named-constant discipline rule (llm-operational-discipline); relay miscount pattern, same repo; personas file gains the six published judges as audience; designed figures ship as vectors; MERGED errata roll (five findings, checkpoint_block_20260826_close lines 27 to 32).
+
+## 2026-08-31 - CC - Receipt confirmed, delivery evidence committed
+
+The organizer replied on 2026-08-31 confirming receipt of the Phase 2 report.
+Results are expected in early October. The submission had gone out on
+2026-08-30 with three attachments, the report, the supporting material and
+`submission.json`, naming leaderboard selection 897665 and citing the public
+repository and the `phase2-report` tag.
+
+Both messages are now in the repository as evidence rather than as recollection:
+`report/final/sent_20260830_submission.eml` and
+`report/final/received_20260831_receipt.eml`, hashed in
+`data/PINNED_ARTIFACTS.md` entry 11 along with
+`report/final/dim4_annex1_20260829.pdf` (13 pages), which arrived in the same
+batch. They stay on `main` until the evaluation ends.
+
+Two ledger lines closed on them: the delivery-evidence gap that the 08-30
+session had recorded as resting on report rather than on artifacts, and the
+audit freeze, which Matteo authorised closing now that the competition is over.
+The screenshots named in the original deliverables manifest are still evidenced
+by nothing in the tree, and the closure records that instead of rounding up.
+
+**Compute disclosure:** none. File moves, hashing and record edits only; no
+model, no pipeline, no network.
